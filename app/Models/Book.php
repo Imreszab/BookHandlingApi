@@ -2,13 +2,13 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Book extends Model
 {
-    /**
-     * Convert price_huf to EUR using the given rate.
-     */
+    use HasFactory;
+
     protected $fillable = [
         'title',
         'author_id',
