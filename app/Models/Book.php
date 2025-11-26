@@ -6,6 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Book extends Model
 {
+    /**
+     * Convert price_huf to EUR using the given rate.
+     */
     protected $fillable = [
         'title',
         'author_id',
@@ -22,5 +25,13 @@ class Book extends Model
     public function category()
     {
         return $this->belongsTo(Category::class);
+    }
+
+        public function getPriceEur($eurRate)
+    {
+        if ($eurRate && $this->price_huf !== null) {
+            return round($this->price_huf * $eurRate, 2);
+        }
+        return null;
     }
 }

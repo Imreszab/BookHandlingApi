@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\AuthorController;
+use App\Http\Controllers\BookController;
 
 /*Route::get('/user', function (Request $request) {
     return $request->user();
@@ -16,3 +17,9 @@ Route::get('/categories', [CategoryController::class, 'index']);
 // Authors routes
 Route::post('/authors', [AuthorController::class, 'store']);
 Route::get('/authors', [AuthorController::class, 'index']);
+
+// Books routes
+Route::post('/books', [BookController::class, 'store']);
+Route::get('/books', [BookController::class, 'index']);
+Route::get('/books/search', [BookController::class, 'search']);
+Route::get('/books/{book}', [BookController::class, 'show']);
